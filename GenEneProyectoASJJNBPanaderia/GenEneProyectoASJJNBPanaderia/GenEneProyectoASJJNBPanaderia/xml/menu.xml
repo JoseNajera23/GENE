@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+	<Opciones>
+		<Opcion Url="/Default.aspx?Id=0" Texto="Inicio" Id="0"></Opcion>
+		<Opcion Url="/Default.aspx?Id=1" Texto="Carta" Id="1"></Opcion>
+		<Opcion Url="/Default.aspx?Id=2" Texto="Contacto" Id="2"></Opcion>
+		<Opcion Url="/Default.aspx?Id=3" Texto="Sala de Juegos" Id="3"></Opcion>
+	</Opciones>
+	<Platillos>
+
+		<!-- PANES -->
+		<Tipo Nombre="Panes">
+			<Platillo Nombre="Bolillos" Orden="1">
+				<Descripcion><![CDATA[Bolillo para hacer tortas]]></Descripcion>
+				<Precio>$10</Precio>
+				<Imagen>img/bolillo.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Pan Baguette" Orden="2">
+				<Descripcion><![CDATA[Pan francés para rellenar]]></Descripcion>
+				<Precio>$30</Precio>
+				<Imagen>img/bagget.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Pan Integral" Orden="3">
+				<Descripcion><![CDATA[Pan integral para sandwich]]></Descripcion>
+				<Precio>$45</Precio>
+				<Imagen>img/integral.jfif</Imagen>
+			</Platillo>
+		</Tipo>
+
+		<!-- PANES DULCES -->
+		<Tipo Nombre="Panes-Dulces">
+			<Platillo Nombre="Concha de Colores" Orden="1">
+				<Descripcion><![CDATA[Concha tradicional de varios colores]]></Descripcion>
+				<Precio>$15</Precio>
+				<Imagen>img/Concha.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Roles de Canela" Orden="2">
+				<Descripcion><![CDATA[Roles de canela recién horneados]]></Descripcion>
+				<Precio>$15</Precio>
+				<Imagen>img/rol.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Pan de Muerto" Orden="3">
+				<Descripcion><![CDATA[Pan tradicional del Día de Muertos]]></Descripcion>
+				<Precio>$35</Precio>
+				<Imagen>img/PanMuerto.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Cuernitos Rellenos" Orden="4">
+				<Descripcion><![CDATA[Rellenos de fresa, piña, chocolate o lechera]]></Descripcion>
+				<Precio>$30</Precio>
+				<Imagen>img/porto.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Rosca de Reyes" Orden="5">
+				<Descripcion><![CDATA[Chica, mediana, grande y familiar]]></Descripcion>
+				<Precio>$10</Precio>
+				<Imagen>img/henhi.jfif</Imagen>
+			</Platillo>
+		</Tipo>
+
+		<!-- GALLETAS DULCES -->
+		<Tipo Nombre="Galletas-Dulces">
+			<Platillo Nombre="Galletas Almeja" Orden="1">
+				<Descripcion><![CDATA[Galletas rellenas de mermelada]]></Descripcion>
+				<Precio>$23</Precio>
+				<Imagen>img/almejaa.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Galletas de Chocolate" Orden="2">
+				<Descripcion><![CDATA[Galleta con chispas de chocolate]]></Descripcion>
+				<Precio>$25</Precio>
+				<Imagen>img/OREO.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Galletas Marías" Orden="3">
+				<Descripcion><![CDATA[Paquete con 10 galletas]]></Descripcion>
+				<Precio>$15</Precio>
+				<Imagen>img/marias.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Pay" Orden="4" Especialidad="SI">
+				<Descripcion><![CDATA[Pay de: Limon, fresa, Queso, Piña]]></Descripcion>
+				<Precio>$15</Precio>
+				<Imagen>img/Pay.jfif</Imagen>
+			</Platillo>
+		</Tipo>
+
+		<!-- GALLETAS SALADAS -->
+		<Tipo Nombre="Mas-Galletas">
+			<Platillo Nombre="Galletas de Avena" Orden="1">
+				<Descripcion><![CDATA[Paquete con 10 galletas]]></Descripcion>
+				<Precio>$25</Precio>
+				<Imagen>img/avena.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Galletas Saladas" Orden="2">
+				<Descripcion><![CDATA[Galletas crujientes con sal]]></Descripcion>
+				<Precio>$20</Precio>
+				<Imagen>img/saladas.jfif</Imagen>
+			</Platillo>
+
+			<Platillo Nombre="Pizza" Orden="3">
+				<Descripcion><![CDATA[Pepperoni, hawaiana, mexicana e italiana]]></Descripcion>
+				<Precio>$25</Precio>
+				<Imagen>img/pizza.jfif</Imagen>
+			</Platillo>
+		</Tipo>
+
+	</Platillos>
+
+	<Datos>
+		<NombreRestaurant>Panaderia The Brothers</NombreRestaurant>
+		<Descripcion>La panadería es el arte y oficio de elaborar pan y otros productos horneados a partir de ingredientes básicos como harina, agua, sal y levadura. En ella se combinan técnicas tradicionales y modernas para crear una gran variedad de sabores, texturas y formas. Más que un lugar de producción, la panadería es un espacio que despierta aromas cálidos y recuerdos, ofreciendo alimentos que forman parte esencial de la vida diaria.</Descripcion>
+		<Direccion>Blvd. Garcia Salinas Zacatecas, Zacatecas #315 Col. Cieneguitas.</Direccion>
+		<Telefono>492-243-6190</Telefono>
+		<Imagen>img/logo.jfif</Imagen>
+		<Ubicacion></Ubicacion>
+	</Datos>
+</Menu>
