@@ -1,0 +1,117 @@
+﻿@model CamnionesWebMVCv1.Models.DTOs.Chofere
+
+@{
+    ViewBag.Title = "Eliminar Chofer";
+}
+
+<style>
+    .delete-title {
+        color: #dc3545;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .card-delete {
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        max-width: 700px;
+    }
+
+    .warning-text {
+        color: #842029;
+        background-color: #f8d7da;
+        padding: 12px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    dt {
+        font-weight: bold;
+        color: #495057;
+    }
+
+    dd {
+        margin-bottom: 10px;
+    }
+
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 6px;
+        border: none;
+    }
+
+        .btn-delete:hover {
+            background-color: #bb2d3b;
+        }
+
+    .btn-cancel {
+        background-color: #6c757d;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .foto-chofer {
+        max-width: 120px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+</style>
+
+<h2 class="delete-title">Eliminar Chofer</h2>
+
+<div class="card-delete">
+    <div class="warning-text">
+        ⚠️ ¿Estás seguro de que deseas eliminar este chofer?
+        <br />Esta acción no se puede deshacer.
+    </div>
+
+    @* Foto del chofer (opcional) *@
+    @if (!string.IsNullOrEmpty(Model.UrlFoto))
+    {
+        <img src="@Model.UrlFoto" alt="Foto del chofer" class="foto-chofer" />
+    }
+
+    <dl class="dl-horizontal">
+        <dt>Nombre</dt>
+        <dd>@Html.DisplayFor(model => model.Nombre)</dd>
+
+        <dt>Apellido Paterno</dt>
+        <dd>@Html.DisplayFor(model => model.ApPaterno)</dd>
+
+        <dt>Apellido Materno</dt>
+        <dd>@Html.DisplayFor(model => model.ApMaterno)</dd>
+
+        <dt>Teléfono</dt>
+        <dd>@Html.DisplayFor(model => model.Telefono)</dd>
+
+        <dt>Fecha de Nacimiento</dt>
+        <dd>@Html.DisplayFor(model => model.FechaNacimiento)</dd>
+
+        <dt>Licencia</dt>
+        <dd>@Html.DisplayFor(model => model.Licencia)</dd>
+
+        <dt>Disponible</dt>
+        <dd>@Html.DisplayFor(model => model.Disponibilidad)</dd>
+
+        <dt>Fecha de Registro</dt>
+        <dd>@Html.DisplayFor(model => model.FechaRegistro)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            <input type="submit" value="Eliminar" class="btn-delete" />
+            <a href="@Url.Action("Index")" class="btn-cancel">Cancelar</a>
+        </div>
+    }
+</div>

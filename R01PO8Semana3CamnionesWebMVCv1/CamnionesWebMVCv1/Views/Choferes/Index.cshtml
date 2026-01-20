@@ -1,0 +1,131 @@
+﻿@model IEnumerable<CamnionesWebMVCv1.Models.DTOs.Chofere>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body{
+        background-color:cadetblue;
+    }
+
+    .tabla-choferes th {
+        background-color: #0d6efd;
+        color: white;
+        text-align: center;
+    }
+
+    .tabla-choferes td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .img-chofer {
+        width: 80px;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .btn-acciones a {
+        display: inline-block;
+        margin: 2px;
+        padding: 4px 8px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 13px;
+        color: white;
+    }
+
+    .btn-editar {
+        background-color: #0d6efd;
+    }
+
+    .btn-detalles {
+        background-color: #198754;
+    }
+
+    .btn-eliminar {
+        background-color: #dc3545;
+    }
+</style>
+
+
+<h2>Choferes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table tabla-choferes">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApPaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApMaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Licencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlFoto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Disponibilidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApPaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApMaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Licencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlFoto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disponibilidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+            <td class="btn-acciones">
+                <a href="@Url.Action("Edit", "Choferes", new { id = item.IdChofer })" class="btn-editar">Edit</a>
+                <a href="@Url.Action("Details", "Choferes", new { id = item.IdChofer })" class="btn-detalles">Details</a>
+                <a href="@Url.Action("Delete", "Choferes", new { id = item.IdChofer })" class="btn-eliminar">Delete</a>
+            </td>
+
+            
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,47 @@
+﻿/* Set padding to keep content from hitting the edges */
+
+
+.body-content {
+    color:chartreuse;
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.tabla-camiones {
+    background-color: #00ffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+    .tabla-camiones th {
+        background-color: #808080;
+        color: white;
+        text-align: center;
+    }
+
+    .tabla-camiones td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+.img-camion {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}

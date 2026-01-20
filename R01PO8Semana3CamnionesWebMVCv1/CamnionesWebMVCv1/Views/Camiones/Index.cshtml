@@ -1,0 +1,131 @@
+﻿@model IEnumerable<CamnionesWebMVCv1.Models.DTOs.Camione>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .tabla-camiones th {
+        background-color: #198754;
+        color: white;
+        text-align: center;
+    }
+
+    .tabla-camiones td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .img-camion {
+        width: 90px;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .btn-acciones a {
+        display: inline-block;
+        margin: 2px;
+        padding: 4px 8px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 13px;
+    }
+
+    .btn-editar {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+    .btn-detalles {
+        background-color: #198754;
+        color: white;
+    }
+
+    .btn-eliminar {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .btn-acciones {
+        text-align: center;
+    }
+
+
+</style>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table tabla-camiones">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoCamion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kilometraje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Disponibilidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlFoto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Matricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoCamion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capacidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kilometraje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Disponibilidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrlFoto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaRegistro)
+        </td>
+        <td class="btn-acciones">
+            <a href="@Url.Action("Edit", "Camiones", new { id = item.IdCamion })" class="btn-editar">Edit</a>
+            <a href="@Url.Action("Details", "Camiones", new { id = item.IdCamion })" class="btn-detalles">Details</a>
+            <a href="@Url.Action("Delete", "Camiones", new { id = item.IdCamion })" class="btn-eliminar">Delete</a>
+        </td>
+
+    </tr>
+}
+
+</table>

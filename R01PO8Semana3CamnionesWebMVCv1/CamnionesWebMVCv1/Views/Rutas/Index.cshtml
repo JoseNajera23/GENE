@@ -1,0 +1,141 @@
+﻿@model IEnumerable<CamnionesWebMVCv1.Models.DTOs.Ruta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body{
+        background-color:cadetblue;
+    }
+
+    .tabla-rutas th {
+        background-color: #6f42c1;
+        color: white;
+        text-align: center;
+    }
+
+    .tabla-rutas td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .badge-si {
+        background-color: #198754;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-size: 12px;
+    }
+
+    .badge-no {
+        background-color: #dc3545;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-size: 12px;
+    }
+
+    .btn-acciones a {
+        display: inline-block;
+        margin: 2px;
+        padding: 4px 8px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 13px;
+        color: white;
+    }
+
+    .btn-editar {
+        background-color: #0d6efd;
+    }
+
+    .btn-detalles {
+        background-color: #198754;
+    }
+
+    .btn-eliminar {
+        background-color: #dc3545;
+    }
+</style>
+
+
+<h2>Rutas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Origen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaSalida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaLlegada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ATiempo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distancia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Camione.Matricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chofere.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaLlegada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ATiempo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distancia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Camione.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chofere.Nombre)
+            </td>
+            <td>
+            <td class="btn-acciones">
+                <a href="@Url.Action("Edit", "Rutas", new { id = item.IdRutas })" class="btn-editar">Edit</a>
+                <a href="@Url.Action("Details", "Rutas", new { id = item.IdRutas })" class="btn-detalles">Details</a>
+                <a href="@Url.Action("Delete", "Rutas", new { id = item.IdRutas })" class="btn-eliminar">Delete</a>
+            </td>
+
+            
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    body {
+        margin: 0;
+        font-family: var(--bs-body-font-family);
+        font-size: var(--bs-body-font-size);
+        font-weight: var(--bs-body-font-weight);
+        line-height: var(--bs-body-line-height);
+        color: black;
+        text-align: var(--bs-body-text-align);
+        background-color: cadetblue;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    .ruta-carousel {
+        max-width: 950px;
+        margin-bottom: 30px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+        .ruta-carousel img {
+            height: 320px;
+            object-fit: cover;
+        }
+
+    .carousel-caption {
+        background: rgba(0,0,0,0.55);
+        border-radius: 8px;
+        padding: 10px;
+    }
+</style>
+
+<div id="camionesCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#camionesCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#camionesCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#camionesCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="~/Images/c5.png" class="d-block w-100" style="height:420px; object-fit:cover;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3">
+                <h3>Cobertura Total</h3>
+                <p>Llegamos a toda la República Mexicana</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="~/Images/camion.jfif" class="d-block w-100" style="height:420px; object-fit:cover;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3">
+                <h3>Flota Moderna</h3>
+                <p>Camiones seguros y certificados</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="~/Images/camion3.jfif" class="d-block w-100" style="height:420px; object-fit:cover;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3">
+                <h3>Rutas Nacionales</h3>
+                <p>Transporte confiable y puntual</p>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#camionesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#camionesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+</div>
+
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Camiones del Norte Zacatecas</h1>
+
+        <p class="lead">
+            Camiones del Norte te ofrece Viajes a toda la República y Internacionales.
+        </p>
+        <p>
+            <a href="https://www.youtube.com/watch?v=0S1ZhGraHz0" class="btn btn-success btn-md">
+                Leer Más &raquo;
+            </a>
+        </p>
+    </section>
+
+    <div class="row">
+        <section class="col-md-4">
+            <h2>Camiones del Norte</h2>
+            <img src="~/Images/camion3.jfif" class="img-fluid mb-3" />
+            <p>
+                Los camiones son vehículos grandes que sirven para transportar mercancías de un lugar a otro. 🚚
+            </p>
+            <p><a class="btn btn-outline-dark" href="https://www.youtube.com/watch?v=K2BnbYOjlJc">Leer Más &raquo;</a></p>
+        </section>
+
+        <section class="col-md-4">
+            <h2>Camiones del Norte</h2>
+            <img src="~/Images/camion2.jfif" class="img-fluid mb-3" />
+            <p>
+                Los camiones permiten el comercio, el abastecimiento y el desarrollo de las ciudades.
+            </p>
+            <p><a class="btn btn-outline-dark" href="https://www.youtube.com/watch?v=HUozIpTODZQ">Leer Más &raquo;</a></p>
+        </section>
+
+        <section class="col-md-4">
+            <h2>Rutas de Camiones</h2>
+            <img src="~/Images/6.jfif" class="img-fluid mb-3" />
+            <p>
+                Información sobre rutas, estados y transporte de mercancía.
+            </p>
+            <p><a class="btn btn-outline-dark" href="#">Leer Más &raquo;</a></p>
+        </section>
+    </div>
+</main>
