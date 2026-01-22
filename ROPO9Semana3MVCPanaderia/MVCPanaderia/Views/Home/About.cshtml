@@ -1,0 +1,664 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+
+<link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+
+    .menu-header {
+        background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .menu-header::before {
+            content: '🍞';
+            position: absolute;
+            font-size: 20em;
+            opacity: 0.08;
+            top: -80px;
+            left: -50px;
+            transform: rotate(-20deg);
+        }
+
+        .menu-header::after {
+            content: '🥖';
+            position: absolute;
+            font-size: 15em;
+            opacity: 0.08;
+            bottom: -60px;
+            right: -40px;
+            transform: rotate(15deg);
+        }
+
+        .menu-header h1 {
+            font-family: 'Damion', cursive;
+            font-size: 4em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-header p {
+            font-size: 1.2em;
+            color: #f5f5dc;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+    .menu-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .menu-intro {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .menu-intro-text {
+        flex: 1;
+    }
+
+        .menu-intro-text h2 {
+            color: #D2691E;
+            font-family: 'Damion', cursive;
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .menu-intro-text h3 {
+            color: #8B4513;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .menu-intro-text p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+    .menu-intro-img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        border: 5px solid #D2691E;
+    }
+
+    .menu-section {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        margin-bottom: 50px;
+    }
+
+    .menu-section-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+        .menu-section-title h2 {
+            color: #D2691E;
+            font-family: 'Damion', cursive;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .menu-section-title hr {
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #D2691E, transparent);
+            border: none;
+            margin: 20px auto;
+        }
+
+    .menu-layout {
+        display: flex;
+        gap: 40px;
+    }
+
+    .menu-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+    }
+
+    .menu-categories {
+        background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        border-radius: 15px;
+        padding: 30px 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+        .menu-categories h3 {
+            color: white;
+            font-family: 'Damion', cursive;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .menu-categories ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-categories li {
+            margin-bottom: 10px;
+        }
+
+        .menu-categories a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+            .menu-categories a:hover,
+            .menu-categories a.active {
+                background: rgba(255,255,255,0.2);
+                transform: translateX(5px);
+            }
+
+    .menu-products {
+        flex: 1;
+    }
+
+    .product-card {
+        display: flex;
+        gap: 30px;
+        background: #f9f9f9;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: #D2691E;
+        }
+
+    .product-img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .product-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .product-header {
+        margin-bottom: 15px;
+    }
+
+    .product-title {
+        color: #8B4513;
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .product-description {
+        color: #666;
+        font-size: 1em;
+        line-height: 1.6;
+    }
+
+    .product-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .product-price {
+        font-family: 'Damion', cursive;
+        font-size: 2.5em;
+        color: #D2691E;
+        font-weight: bold;
+    }
+
+    .product-price-currency {
+        font-size: 0.7em;
+    }
+
+    .btn-order {
+        background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-order:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(210, 105, 30, 0.4);
+            color: white;
+        }
+
+    .category-badge {
+        display: inline-block;
+        background: #D2691E;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    @@media (max-width: 992px) {
+        .menu-layout {
+            flex-direction: column;
+        }
+
+        .menu-sidebar {
+            width: 100%;
+            position: static;
+        }
+
+        .menu-intro {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .product-card {
+            flex-direction: column;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .menu-header h1 {
+            font-size: 2.5em;
+        }
+
+        .menu-intro {
+            padding: 30px 20px;
+        }
+
+        .menu-section {
+            padding: 30px 20px;
+        }
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .product-card {
+        animation: fadeIn 0.6s ease-out;
+    }
+</style>
+
+<main>
+    <header class="menu-header">
+        <div class="container">
+            <h1>🍞 Nuestro Menú</h1>
+            <p>Descubre nuestra variedad de panes y galletas artesanales, preparados diariamente con ingredientes frescos y recetas tradicionales</p>
+        </div>
+    </header>
+
+    <div class="menu-container">
+        <section class="menu-intro">
+            <div class="menu-intro-text">
+                <h2>Variedad del Menú</h2>
+                <h3>Panadería y Galletas de la Casa</h3>
+                <p>
+                    Disfruta nuestro pan y galletas artesanales, preparados diariamente con dedicación y recetas de tradición familiar.
+                    Cada pieza conserva el sabor auténtico, la textura perfecta y el aroma que solo el pan recién horneado puede ofrecer.
+                </p>
+            </div>
+            <figure>
+                <img src="~/img/pana3.jfif" alt="Variedad de pan artesanal recién horneado" class="menu-intro-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22250%22 height=%22250%22%3E%3Crect fill=%22%23ddd%22 width=%22250%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2240%22%3E🥖%3C/text%3E%3C/svg%3E'">
+                <figcaption class="sr-only">Panadería artesanal The Brothers</figcaption>
+            </figure>
+        </section>
+
+        <section class="menu-section">
+            <div class="menu-section-title">
+                <h2>🥖 Nuestros Productos</h2>
+                <hr>
+            </div>
+
+            <div class="menu-layout">
+                <aside class="menu-sidebar">
+                    <nav class="menu-categories" aria-label="Categorías de productos">
+                        <h3>Categorías</h3>
+                        <ul>
+                            <li><a href="#" class="active" data-category="all" aria-current="page">🍞 Todos</a></li>
+                            <li><a href="#" data-category="pay">🥧 Pays</a></li>
+                            <li><a href="#" data-category="roles">🥐 Roles</a></li>
+                            <li><a href="#" data-category="galletas">🍪 Galletas</a></li>
+                            <li><a href="#" data-category="pan">🥖 Panes</a></li>
+                            <li><a href="#" data-category="muffins">🧁 Muffins</a></li>
+                            <li><a href="#" data-category="integral">🌾 Integral</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <div class="menu-products">
+                    <article class="product-card" data-category="pay">
+                        <figure>
+                            <img src="~/img/pay.jfif" alt="Pay artesanal de manzana, limón, queso y fresa" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22%3E🥧%3C/text%3E%3C/svg%3E'">
+                            <figcaption class="sr-only">Pay con diferentes sabores disponibles</figcaption>
+                        </figure>
+                        <div class="product-info">
+                            <div>
+                                <span class="category-badge" aria-label="Categoría: Pays">🥧 Pays</span>
+                                <h3 class="product-title">Pay (Manzana, Limón, Queso, Fresa)</h3>
+                                <p class="product-description">
+                                    Pay artesanal con base crujiente y relleno suave y cremoso, elaborado con ingredientes frescos
+                                    para un sabor dulce y delicioso en cada bocado.
+                                </p>
+                            </div>
+                            <footer class="product-footer">
+                                <div class="product-price" aria-label="Precio: 50 pesos">
+                                    <span class="product-price-currency">$</span>50
+                                </div>
+                                <a href="#" class="btn-order" aria-label="Ordenar Pay">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Ordenar
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="roles">
+                        <figure>
+                            <img src="~/img/rol.jfif" alt="Roles de canela con glaseado dulce" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22%3E🥐%3C/text%3E%3C/svg%3E'">
+                            <figcaption class="sr-only">Roles de canela esponjosos y aromáticos</figcaption>
+                        </figure>
+                        <div class="product-info">
+                            <div>
+                                <span class="category-badge" aria-label="Categoría: Roles">🥐 Roles</span>
+                                <h3 class="product-title">Roles de Canela</h3>
+                                <p class="product-description">
+                                    Roles de canela suaves y esponjosos, rellenos de canela aromática y cubiertos con un glaseado
+                                    dulce que se derrite al primer bocado.
+                                </p>
+                            </div>
+                            <footer class="product-footer">
+                                <div class="product-price" aria-label="Precio: 20 pesos">
+                                    <span class="product-price-currency">$</span>20
+                                </div>
+                                <a href="#" class="btn-order" aria-label="Ordenar Roles de Canela">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Ordenar
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="galletas">
+                        <figure>
+                            <img src="~/img/avena.jfif" alt="Galletas de avena crujientes y caseras" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22%3E🍪%3C/text%3E%3C/svg%3E'">
+                            <figcaption class="sr-only">Galletas de avena tradicionales</figcaption>
+                        </figure>
+                        <div class="product-info">
+                            <div>
+                                <span class="category-badge" aria-label="Categoría: Galletas">🍪 Galletas</span>
+                                <h3 class="product-title">Galletas de Avena</h3>
+                                <p class="product-description">
+                                    Galleta de avena crujiente por fuera y suave por dentro, elaborada con avena natural y un toque
+                                    casero que resalta su sabor tradicional.
+                                </p>
+                            </div>
+                            <footer class="product-footer">
+                                <div class="product-price" aria-label="Precio: 15 pesos">
+                                    <span class="product-price-currency">$</span>15
+                                </div>
+                                <a href="#" class="btn-order" aria-label="Ordenar Galletas de Avena">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Ordenar
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="pan">
+                        <figure>
+                            <img src="~/img/bolillo.jfif" alt="Bolillo tradicional mexicano recién horneado" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22%3E🥖%3C/text%3E%3C/svg%3E'">
+                            <figcaption class="sr-only">Bolillo crujiente y suave</figcaption>
+                        </figure>
+                        <div class="product-info">
+                            <div>
+                                <span class="category-badge" aria-label="Categoría: Panes">🥖 Panes</span>
+                                <h3 class="product-title">Bolillo</h3>
+                                <p class="product-description">
+                                    Bolillo recién horneado, crujiente por fuera y suave por dentro, ideal para acompañar cualquier
+                                    comida o preparar tortas tradicionales.
+                                </p>
+                            </div>
+                            <footer class="product-footer">
+                                <div class="product-price" aria-label="Precio: 5 pesos">
+                                    <span class="product-price-currency">$</span>5
+                                </div>
+                                <a href="#" class="btn-order" aria-label="Ordenar Bolillo">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Ordenar
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="pan">
+                        <figure>
+                            <img src="~/img/concha.jfif" alt="Conchas mexicanas de chocolate y vainilla" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22%3E🐚%3C/text%3E%3C/svg%3E'">
+                            <figcaption class="sr-only">Pan dulce concha tradicional</figcaption>
+                        </figure>
+                        <div class="product-info">
+                            <div>
+                                <span class="category-badge" aria-label="Categoría: Panes">🥖 Panes</span>
+                                <h3 class="product-title">Conchas</h3>
+                                <p class="product-description">
+                                    Pan dulce tradicional mexicano con cobertura crujiente de azúcar. Disponible en chocolate y vainilla.
+                                    Perfecto para acompañar con café o leche.
+                                </p>
+                            </div>
+                            <footer class="product-footer">
+                                <div class="product-price" aria-label="Precio: 8 pesos">
+                                    <span class="product-price-currency">$</span>8
+                                </div>
+                                <a href="#" class="btn-order" aria-label="Ordenar Conchas">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Ordenar
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="muffins">
+                        <figure>
+                            <img src="~/img/muffins.jfif" alt="Muffins esponjosos de diferentes sabores" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22%3E🧁%3C/text%3E%3C/svg%3E'">
+                            <figcaption class="sr-only">Muffins variados: chocolate, arándanos, vainilla y zanahoria</figcaption>
+                        </figure>
+                        <div class="product-info">
+                            <div>
+                                <span class="category-badge" aria-label="Categoría: Muffins">🧁 Muffins</span>
+                                <h3 class="product-title">Muffins</h3>
+                                <p class="product-description">
+                                    Muffins esponjosos, suaves y llenos de sabor. Disponibles en diferentes variedades:
+                                    chocolate, arándanos, vainilla y zanahoria.
+                                </p>
+                            </div>
+                            <footer class="product-footer">
+                                <div class="product-price" aria-label="Precio: 25 pesos">
+                                    <span class="product-price-currency">$</span>25
+                                </div>
+                                <a href="#" class="btn-order" aria-label="Ordenar Muffins">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Ordenar
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="galletas">
+                        <figure>
+                            <img src="~/img/almejaa.jfif" alt="Galletas almeja rellenas de mermelada de fresa" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22%3E🍪%3C/text%3E%3C/svg%3E'">
+                            <figcaption class="sr-only">Galletas almeja con relleno de fresa</figcaption>
+                        </figure>
+                        <div class="product-info">
+                            <div>
+                                <span class="category-badge" aria-label="Categoría: Galletas">🍪 Galletas</span>
+                                <h3 class="product-title">Galletas Almeja</h3>
+                                <p class="product-description">
+                                    Galletas rellenas de mermelada de fresa. Suaves, dulces y perfectas para acompañar
+                                    con café o chocolate caliente.
+                                </p>
+                            </div>
+                            <footer class="product-footer">
+                                <div class="product-price" aria-label="Precio: 12 pesos">
+                                    <span class="product-price-currency">$</span>12
+                                </div>
+                                <a href="#" class="btn-order" aria-label="Ordenar Galletas Almeja">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Ordenar
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="integral">
+                        <figure>
+                            <img src="~/img/integral.jfif" alt="Pan integral saludable rico en fibra" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22%3E🌾%3C/text%3E%3C/svg%3E'">
+                            <figcaption class="sr-only">Pan integral 100% natural</figcaption>
+                        </figure>
+                        <div class="product-info">
+                            <div>
+                                <span class="category-badge" aria-label="Categoría: Integral">🌾 Integral</span>
+                                <h3 class="product-title">Pan Integral</h3>
+                                <p class="product-description">
+                                    Pan elaborado con harina integral 100% natural, rico en fibra y nutrientes.
+                                    Ideal para una alimentación saludable y equilibrada.
+                                </p>
+                            </div>
+                            <footer class="product-footer">
+                                <div class="product-price" aria-label="Precio: 35 pesos">
+                                    <span class="product-price-currency">$</span>35
+                                </div>
+                                <a href="#" class="btn-order" aria-label="Ordenar Pan Integral">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Ordenar
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="pan">
+                        <figure>
+                            <img src="~/img/concha.jfif" alt="Conchas mexicanas de chocolate y vainilla" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2260%22%3E🐚%3C/text%3E%3C/svg%3E'">
+                            <figcaption class="sr-only">Pan dulce concha tradicional</figcaption>
+                        </figure>
+                        <div class="product-info">
+                            <div>
+                                <span class="category-badge" aria-label="Categoría: Panes">🥖 Panes</span>
+                                <h3 class="product-title">Conchas</h3>
+                                <p class="product-description">
+                                    Pan dulce tradicional mexicano con cobertura crujiente de azúcar. Disponible en chocolate y vainilla.
+                                    Perfecto para acompañar con café o leche.
+                                </p>
+                            </div>
+                            <footer class="product-footer">
+                                <div class="product-price" aria-label="Precio: 8 pesos">
+                                    <span class="product-price-currency">$</span>8
+                                </div>
+                                <a href="#" class="btn-order" aria-label="Ordenar Conchas">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Ordenar
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var categoryLinks = document.querySelectorAll('.menu-categories a');
+        var productCards = document.querySelectorAll('.product-card');
+
+        for (var i = 0; i < categoryLinks.length; i++) {
+            categoryLinks[i].addEventListener('click', function (e) {
+                e.preventDefault();
+
+                for (var j = 0; j < categoryLinks.length; j++) {
+                    categoryLinks[j].classList.remove('active');
+                }
+                this.classList.add('active');
+
+                var category = this.getAttribute('data-category');
+
+                for (var k = 0; k < productCards.length; k++) {
+                    var card = productCards[k];
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        var orderButtons = document.querySelectorAll('.btn-order');
+        for (var m = 0; m < orderButtons.length; m++) {
+            orderButtons[m].addEventListener('click', function (e) {
+                e.preventDefault();
+                var productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                alert('¡Producto agregado al carrito!\n\n' + productTitle + '\n\nPronto podrás completar tu pedido.');
+            });
+        }
+    });
+</script>

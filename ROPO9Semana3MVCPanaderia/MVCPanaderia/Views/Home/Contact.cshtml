@@ -1,0 +1,460 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+<link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+
+    .contact-header {
+        background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .contact-header h1 {
+            font-family: 'Damion', cursive;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-header p {
+            font-size: 1.2em;
+            color: #f5f5dc;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .contact-form-section {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        overflow: hidden;
+        margin-bottom: 50px;
+    }
+
+    .form-side {
+        padding: 50px;
+    }
+
+        .form-side h2 {
+            color: #8B4513;
+            font-family: 'Damion', cursive;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+        .form-group label {
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+    .form-control {
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 15px;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+        .form-control:focus {
+            border-color: #D2691E;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+        }
+
+    .btn-enviar {
+        background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 30px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+        .btn-enviar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(210, 105, 30, 0.3);
+        }
+
+    .map-side {
+        background: linear-gradient(135deg, #f5f5dc 0%, #faf0e6 100%);
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 400px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
+
+    .info-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .info-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+        .info-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+    .info-card-icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+    }
+
+    .info-card h3 {
+        color: #8B4513;
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .info-card p {
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .info-card a {
+        color: #D2691E;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+    .social-section {
+        background: white;
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+        .social-section h2 {
+            color: #8B4513;
+            font-family: 'Damion', cursive;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .social-section p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        color: white;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+        .social-icon:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .social-icon.facebook {
+            background: #3b5998;
+        }
+
+        .social-icon.twitter {
+            background: #1da1f2;
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .social-icon.youtube {
+            background: #ff0000;
+        }
+
+        .social-icon.whatsapp {
+            background: #25d366;
+        }
+
+    @@media (max-width: 768px) {
+        .contact-header h1 {
+            font-size: 2.5em;
+        }
+
+        .form-side, .map-side {
+            padding: 30px 20px;
+        }
+
+        .info-cards {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<main>
+    <header class="contact-header">
+        <div class="container">
+            <h1>📧 Contáctanos</h1>
+            <p>Estamos aquí para escucharte. Envíanos un mensaje y nos pondremos en contacto contigo lo antes posible.</p>
+        </div>
+    </header>
+
+    <div class="contact-container">
+        <section class="contact-form-section">
+            <div class="row">
+                <div class="col-md-6 form-side">
+                    <h2>Envíanos un Mensaje</h2>
+                    <form id="contactForm" method="post" action="#" aria-label="Formulario de contacto">
+                        <div class="form-group">
+                            <label for="contact_name">
+                                <i class="fas fa-user" aria-hidden="true"></i> Nombre Completo
+                            </label>
+                            <input type="text" class="form-control" id="contact_name" name="contact_name" placeholder="Ingresa tu nombre completo" required aria-required="true" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact_email">
+                                <i class="fas fa-envelope" aria-hidden="true"></i> Correo Electrónico
+                            </label>
+                            <input type="email" class="form-control" id="contact_email" name="contact_email" placeholder="tucorreo&#64;ejemplo.com" required aria-required="true" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact_phone">
+                                <i class="fas fa-phone" aria-hidden="true"></i> Teléfono (Opcional)
+                            </label>
+                            <input type="tel" class="form-control" id="contact_phone" name="contact_phone" placeholder="(555) 123-4567" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact_subject">
+                                <i class="fas fa-tag" aria-hidden="true"></i> Asunto
+                            </label>
+                            <input type="text" class="form-control" id="contact_subject" name="contact_subject" placeholder="¿En qué podemos ayudarte?" required aria-required="true" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact_message">
+                                <i class="fas fa-comment" aria-hidden="true"></i> Mensaje
+                            </label>
+                            <textarea class="form-control" id="contact_message" name="contact_message" rows="5" placeholder="Escribe tu mensaje aquí..." required aria-required="true"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+                <div class="col-md-6 map-side">
+                    <h2 style="color: #8B4513; font-family: 'Damion', cursive; font-size: 2.5em; margin-bottom: 20px;">
+                        📍 Encuéntranos
+                    </h2>
+                    <figure class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.4727392347775!2d-98.20636492503837!3d19.04368035287954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0e5e1e1e1e1%3A0x1e1e1e1e1e1e1e1e!2sPuebla%2C%20Pue.!5e0!3m2!1ses!2smx!4v1234567890123"
+                                width="100%"
+                                height="100%"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                title="Ubicación de Panadería The Brothers en Puebla, México"
+                                aria-label="Mapa de Google mostrando la ubicación de nuestra panadería en el Centro Histórico de Puebla"></iframe>
+                        <figcaption style="color: #666; text-align: center; margin-top: 20px;">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> <strong>Dirección:</strong> Centro Histórico, Puebla, Pue., México
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-cards" aria-label="Información de contacto">
+            <article class="info-card">
+                <div class="info-card-icon" aria-hidden="true">📍</div>
+                <h3>Dirección</h3>
+                <address>
+                    <p><strong>Panadería The Brothers</strong></p>
+                    <p>Centro Histórico</p>
+                    <p>Puebla, Pue. 72000</p>
+                    <p>México</p>
+                </address>
+            </article>
+
+            <article class="info-card">
+                <div class="info-card-icon" aria-hidden="true">📞</div>
+                <h3>Teléfono</h3>
+                <p><strong>Principal:</strong></p>
+                <p><a href="tel:+522221234567" aria-label="Llamar al teléfono principal">(222) 123-4567</a></p>
+                <p><strong>WhatsApp:</strong></p>
+                <p><a href="https://wa.me/522221234567" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">(222) 123-4567</a></p>
+            </article>
+
+            <article class="info-card">
+                <div class="info-card-icon" aria-hidden="true">📧</div>
+                <h3>Correo Electrónico</h3>
+                <p><strong>Ventas:</strong></p>
+                <p><a href="mailto:ventas@thebrothers.com" aria-label="Enviar correo a ventas">ventas&#64;thebrothers.com</a></p>
+                <p><strong>Soporte:</strong></p>
+                <p><a href="mailto:contacto@thebrothers.com" aria-label="Enviar correo a soporte">contacto&#64;thebrothers.com</a></p>
+            </article>
+
+            <article class="info-card">
+                <div class="info-card-icon" aria-hidden="true">🕐</div>
+                <h3>Horario de Atención</h3>
+                <p><strong>Lunes - Sábado:</strong></p>
+                <time>7:00 AM - 9:00 PM</time>
+                <p><strong>Domingo:</strong></p>
+                <time>8:00 AM - 8:00 PM</time>
+            </article>
+        </section>
+
+        <section class="social-section" aria-label="Redes sociales">
+            <h2>🌟 Síguenos en Redes Sociales</h2>
+            <p>Mantente al día con nuestras novedades, promociones especiales y productos del día</p>
+            <nav class="social-icons" aria-label="Enlaces a redes sociales">
+                <a href="#" class="social-icon facebook" title="Síguenos en Facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="social-icon twitter" title="Síguenos en Twitter" aria-label="Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="social-icon instagram" title="Síguenos en Instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="social-icon youtube" title="Suscríbete en YouTube" aria-label="YouTube">
+                    <i class="fab fa-youtube" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="social-icon whatsapp" title="Contáctanos por WhatsApp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                </a>
+            </nav>
+            <p style="margin-top: 20px; color: #8B4513; font-weight: bold;">
+                &#64;TheBrothersPanaderia
+            </p>
+        </section>
+    </div>
+</main>
+
+@*<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var nombre = document.getElementById('contact_name').value;
+                var email = document.getElementById('contact_email').value;
+                var asunto = document.getElementById('contact_subject').value;
+                var mensaje = document.getElementById('contact_message').value;
+                if (!nombre || !email || !asunto || !mensaje) {
+                    alert('Por favor, completa todos los campos obligatorios.');
+                    return;
+                }
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    alert('Por favor, ingresa un correo electrónico válido.');
+                    return;
+                }
+                alert('¡Gracias por contactarnos! Tu mensaje ha sido enviado exitosamente.');
+                this.reset();
+            });
+        }
+
+        var inputs = document.getElementsByClassName('form-control');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+                this.parentElement.style.transition = 'transform 0.3s ease';
+            });
+            inputs[i].addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        }
+
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('.contact-header');
+            var scrolled = window.pageYOffset;
+            if (header) {
+                header.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
+            }
+        });
+
+        setTimeout(function() {
+            var cards = document.getElementsByClassName('info-card');
+            for (var j = 0; j < cards.length; j++) {
+                cards[j].classList.add('visible');
+            }
+        }, 300);
+    });
+</script>*@

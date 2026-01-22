@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PanaderiaModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Galletero">
+    <Key>
+      <PropertyRef Name="EmpleadoID" />
+    </Key>
+    <Property Name="EmpleadoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductoID" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ocupacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoGalleta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Galletero__Produ__29572725" FromRole="Galletero" ToRole="Productos" />
+    <NavigationProperty Name="Producto1" Relationship="Self.FK_Galletero_Productos" FromRole="Galletero" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Panadero">
+    <Key>
+      <PropertyRef Name="EmpleadoID" />
+    </Key>
+    <Property Name="EmpleadoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductoID" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ocupacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoPan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Panadero__Produc__267ABA7A" FromRole="Panadero" ToRole="Productos" />
+    <NavigationProperty Name="Producto1" Relationship="Self.FK_Panadero_Productos" FromRole="Panadero" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="ProductoID" />
+    </Key>
+    <Property Name="ProductoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoProducto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Galleteroes" Relationship="Self.FK__Galletero__Produ__29572725" FromRole="Productos" ToRole="Galletero" />
+    <NavigationProperty Name="Galleteroes1" Relationship="Self.FK_Galletero_Productos" FromRole="Productos" ToRole="Galletero" />
+    <NavigationProperty Name="Panaderoes" Relationship="Self.FK__Panadero__Produc__267ABA7A" FromRole="Productos" ToRole="Panadero" />
+    <NavigationProperty Name="Panaderoes1" Relationship="Self.FK_Panadero_Productos" FromRole="Productos" ToRole="Panadero" />
+    <NavigationProperty Name="Ventas" Relationship="Self.FK__Ventas__Producto__2C3393D0" FromRole="Productos" ToRole="Ventas" />
+    <NavigationProperty Name="Ventas1" Relationship="Self.FK__Ventas__Producto__693CA210" FromRole="Productos" ToRole="Ventas" />
+    <NavigationProperty Name="Ventas2" Relationship="Self.FK_Ventas_Productos" FromRole="Productos" ToRole="Ventas" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="VentaID" />
+    </Key>
+    <Property Name="VentaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductoID" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Ventas__Producto__2C3393D0" FromRole="Ventas" ToRole="Productos" />
+    <NavigationProperty Name="Producto1" Relationship="Self.FK__Ventas__Producto__693CA210" FromRole="Ventas" ToRole="Productos" />
+    <NavigationProperty Name="Producto2" Relationship="Self.FK_Ventas_Productos" FromRole="Ventas" ToRole="Productos" />
+  </EntityType>
+  <Association Name="FK__Galletero__Produ__29572725">
+    <End Role="Productos" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Galletero" Type="Self.Galletero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="ProductoID" />
+      </Principal>
+      <Dependent Role="Galletero">
+        <PropertyRef Name="ProductoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Galletero_Productos">
+    <End Role="Productos" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Galletero" Type="Self.Galletero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="ProductoID" />
+      </Principal>
+      <Dependent Role="Galletero">
+        <PropertyRef Name="ProductoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Panadero__Produc__267ABA7A">
+    <End Role="Productos" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Panadero" Type="Self.Panadero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="ProductoID" />
+      </Principal>
+      <Dependent Role="Panadero">
+        <PropertyRef Name="ProductoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Panadero_Productos">
+    <End Role="Productos" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Panadero" Type="Self.Panadero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="ProductoID" />
+      </Principal>
+      <Dependent Role="Panadero">
+        <PropertyRef Name="ProductoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ventas__Producto__2C3393D0">
+    <End Role="Productos" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Ventas" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="ProductoID" />
+      </Principal>
+      <Dependent Role="Ventas">
+        <PropertyRef Name="ProductoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ventas__Producto__693CA210">
+    <End Role="Productos" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Ventas" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="ProductoID" />
+      </Principal>
+      <Dependent Role="Ventas">
+        <PropertyRef Name="ProductoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_Productos">
+    <End Role="Productos" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Ventas" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="ProductoID" />
+      </Principal>
+      <Dependent Role="Ventas">
+        <PropertyRef Name="ProductoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PanaderiaModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Galleteroes" EntityType="Self.Galletero" />
+    <EntitySet Name="Panaderoes" EntityType="Self.Panadero" />
+    <EntitySet Name="Productos" EntityType="Self.Producto" />
+    <EntitySet Name="Ventas" EntityType="Self.Venta" />
+    <AssociationSet Name="FK__Galletero__Produ__29572725" Association="Self.FK__Galletero__Produ__29572725">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Galletero" EntitySet="Galleteroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Galletero_Productos" Association="Self.FK_Galletero_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Galletero" EntitySet="Galleteroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Panadero__Produc__267ABA7A" Association="Self.FK__Panadero__Produc__267ABA7A">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Panadero" EntitySet="Panaderoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Panadero_Productos" Association="Self.FK_Panadero_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Panadero" EntitySet="Panaderoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ventas__Producto__2C3393D0" Association="Self.FK__Ventas__Producto__2C3393D0">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Ventas" EntitySet="Ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ventas__Producto__693CA210" Association="Self.FK__Ventas__Producto__693CA210">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Ventas" EntitySet="Ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_Productos" Association="Self.FK_Ventas_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Ventas" EntitySet="Ventas" />
+    </AssociationSet>
+    <FunctionImport Name="Delete_Galletero">
+      <Parameter Name="EmpleadoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Panadero">
+      <Parameter Name="EmpleadoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Producto">
+      <Parameter Name="ProductoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Venta">
+      <Parameter Name="VentaID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Venta_Diaria">
+      <Parameter Name="VentaDiariaID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Galletero">
+      <Parameter Name="ProductoID" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Ocupacion" Mode="In" Type="String" />
+      <Parameter Name="TipoGalleta" Mode="In" Type="String" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Panadero">
+      <Parameter Name="ProductoID" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Ocupacion" Mode="In" Type="String" />
+      <Parameter Name="TipoPan" Mode="In" Type="String" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Producto">
+      <Parameter Name="NombreProducto" Mode="In" Type="String" />
+      <Parameter Name="TipoProducto" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Venta">
+      <Parameter Name="ProductoID" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="Precio" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Venta_Diaria">
+      <Parameter Name="VentaID" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Obtener_Galleteros" ReturnType="Collection(PanaderiaModel1.Obtener_Galleteros_Result)" />
+    <FunctionImport Name="Obtener_Panaderos" ReturnType="Collection(PanaderiaModel1.Obtener_Panaderos_Result)" />
+    <FunctionImport Name="Obtener_Productos" ReturnType="Collection(PanaderiaModel1.Obtener_Productos_Result)" />
+    <FunctionImport Name="Obtener_Ventas" ReturnType="Collection(PanaderiaModel1.Obtener_Ventas_Result)" />
+    <FunctionImport Name="Obtener_Ventas_Diarias" />
+    <FunctionImport Name="ObtenerVentaPorDatos" ReturnType="Collection(PanaderiaModel1.ObtenerVentaPorDatos_Result)">
+      <Parameter Name="ProductoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PanaderiaModel1.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PanaderiaModel1.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="Update_Galletero">
+      <Parameter Name="EmpleadoID" Mode="In" Type="Int32" />
+      <Parameter Name="ProductoID" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Ocupacion" Mode="In" Type="String" />
+      <Parameter Name="TipoGalleta" Mode="In" Type="String" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Panadero">
+      <Parameter Name="EmpleadoID" Mode="In" Type="Int32" />
+      <Parameter Name="ProductoID" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Ocupacion" Mode="In" Type="String" />
+      <Parameter Name="TipoPan" Mode="In" Type="String" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Producto">
+      <Parameter Name="ProductoID" Mode="In" Type="Int32" />
+      <Parameter Name="NombreProducto" Mode="In" Type="String" />
+      <Parameter Name="TipoProducto" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Venta">
+      <Parameter Name="VentaID" Mode="In" Type="Int32" />
+      <Parameter Name="ProductoID" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="Precio" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Venta_Diaria">
+      <Parameter Name="VentaDiariaID" Mode="In" Type="Int32" />
+      <Parameter Name="VentaID" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Obtener_Galleteros_Result">
+    <Property Type="Int32" Name="EmpleadoID" Nullable="false" />
+    <Property Type="Int32" Name="ProductoID" Nullable="true" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Ocupacion" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TipoGalleta" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Cantidad" Nullable="false" />
+    <Property Type="Int32" Name="Stock" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Obtener_Panaderos_Result">
+    <Property Type="Int32" Name="EmpleadoID" Nullable="false" />
+    <Property Type="Int32" Name="ProductoID" Nullable="true" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Ocupacion" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TipoPan" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Cantidad" Nullable="false" />
+    <Property Type="Int32" Name="Stock" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Obtener_Productos_Result">
+    <Property Type="Int32" Name="ProductoID" Nullable="false" />
+    <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TipoProducto" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="Obtener_Ventas_Result">
+    <Property Type="Int32" Name="VentaID" Nullable="false" />
+    <Property Type="Int32" Name="ProductoID" Nullable="false" />
+    <Property Type="Int32" Name="Cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="Precio" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="ObtenerVentaPorDatos_Result">
+    <Property Type="Int32" Name="VentaID" Nullable="false" />
+    <Property Type="Int32" Name="ProductoID" Nullable="false" />
+    <Property Type="Int32" Name="Cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="Precio" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

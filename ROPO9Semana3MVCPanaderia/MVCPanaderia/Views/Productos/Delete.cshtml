@@ -1,0 +1,44 @@
+﻿@model MVCPanaderia.Models.DTOs.ProductoDTO
+    ViewBag.Title = "Delete";
+}
+
+<style>
+    body {
+        margin: 0;
+        font-family: var(--bs-body-font-family);
+        font-size: var(--bs-body-font-size);
+        font-weight: var(--bs-body-font-weight);
+        line-height: var(--bs-body-line-height);
+        color: var(--bs-body-color);
+        text-align: var(--bs-body-text-align);
+        background-color: #cd7137;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+</style>
+<h2>Eliminar Producto</h2>
+
+<h3>¿Está seguro de que desea eliminar este producto?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.ProductoID)</dt>
+        <dd>@Html.DisplayFor(model => model.ProductoID)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.NombreProducto)</dt>
+        <dd>@Html.DisplayFor(model => model.NombreProducto)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.TipoProducto)</dt>
+        <dd>@Html.DisplayFor(model => model.TipoProducto)</dd>
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Productos", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            @Html.ActionLink("Volver al Listado", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+

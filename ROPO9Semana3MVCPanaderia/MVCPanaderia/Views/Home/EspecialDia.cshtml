@@ -1,0 +1,634 @@
+﻿
+@{
+    ViewBag.Title = "EspecialDia";
+}
+
+<link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+
+    .special-header {
+        background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .special-header::before {
+            content: '⭐';
+            position: absolute;
+            font-size: 25em;
+            opacity: 0.05;
+            top: -100px;
+            left: -80px;
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-header::after {
+            content: '✨';
+            position: absolute;
+            font-size: 20em;
+            opacity: 0.05;
+            bottom: -80px;
+            right: -60px;
+            animation: rotate 15s linear infinite reverse;
+        }
+
+    @@keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .special-header h1 {
+        font-family: 'Damion', cursive;
+        font-size: 4.5em;
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        position: relative;
+        z-index: 1;
+    }
+
+    .special-header p {
+        font-size: 1.3em;
+        color: #f5f5dc;
+        max-width: 900px;
+        margin: 0 auto 30px;
+        line-height: 1.8;
+        position: relative;
+        z-index: 1;
+    }
+
+    .special-badge {
+        display: inline-block;
+        background: rgba(255,255,255,0.2);
+        padding: 10px 30px;
+        border-radius: 30px;
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-top: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .special-container {
+        max-width: 1400px;
+        margin: -50px auto 0;
+        padding: 0 15px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .popular-section {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        margin-bottom: 50px;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+        .section-title h2 {
+            color: #D2691E;
+            font-family: 'Damion', cursive;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+    .section-title-icon {
+        font-size: 0.8em;
+    }
+
+    .section-title hr {
+        width: 250px;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #D2691E, transparent);
+        border: none;
+        margin: 20px auto;
+    }
+
+    .popular-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+    }
+
+    .popular-card {
+        background: linear-gradient(135deg, #fff 0%, #faf0e6 100%);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: all 0.4s ease;
+        border: 3px solid transparent;
+    }
+
+        .popular-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(210, 105, 30, 0.3);
+            border-color: #D2691E;
+        }
+
+    .popular-card-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+
+    .popular-card:hover .popular-card-img {
+        transform: scale(1.1);
+    }
+
+    .popular-card-img-container {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #D2691E;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 0.9em;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    .popular-card-content {
+        padding: 25px;
+    }
+
+    .popular-card-title {
+        color: #8B4513;
+        font-family: 'Damion', cursive;
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+        .popular-card-title .first-letter {
+            font-size: 1.3em;
+            color: #D2691E;
+        }
+
+    .popular-card-divider {
+        width: 60%;
+        height: 2px;
+        background: #D2691E;
+        margin: 10px auto 20px;
+    }
+
+    .popular-card-description {
+        color: #666;
+        font-size: 1em;
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .popular-card-footer {
+        text-align: center;
+    }
+
+    .btn-order-now {
+        background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
+        color: white;
+        padding: 12px 35px;
+        border-radius: 30px;
+        font-family: 'Damion', cursive;
+        font-size: 1.3em;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(210, 105, 30, 0.3);
+    }
+
+        .btn-order-now:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(210, 105, 30, 0.5);
+            color: white;
+        }
+
+    .menu-diario-section {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        margin-bottom: 50px;
+    }
+
+    .menu-diario-content {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .menu-board-container {
+        flex: 0 0 300px;
+    }
+
+    .menu-board-img {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .menu-lists {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+    }
+
+    .menu-list-section h3 {
+        color: #8B4513;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #D2691E;
+        font-weight: bold;
+    }
+
+    .menu-list-section ol {
+        list-style: none;
+        padding: 0;
+        counter-reset: item;
+    }
+
+    .menu-list-section li {
+        counter-increment: item;
+        padding: 12px 0 12px 45px;
+        position: relative;
+        color: #666;
+        font-size: 1.05em;
+        border-bottom: 1px solid #eee;
+        transition: all 0.3s ease;
+    }
+
+        .menu-list-section li:hover {
+            color: #D2691E;
+            padding-left: 50px;
+        }
+
+        .menu-list-section li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+    .promo-banner {
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        color: #8B4513;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 50px;
+        box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3);
+    }
+
+        .promo-banner h3 {
+            font-family: 'Damion', cursive;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .promo-banner p {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+    @@media (max-width: 992px) {
+        .menu-diario-content {
+            flex-direction: column;
+        }
+
+        .menu-board-container {
+            flex: 1;
+            width: 100%;
+        }
+
+        .menu-lists {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .special-header h1 {
+            font-size: 2.8em;
+        }
+
+        .popular-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .popular-section,
+        .menu-diario-section {
+            padding: 30px 20px;
+        }
+    }
+
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .popular-card {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+        .popular-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .popular-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .popular-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .popular-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .popular-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .popular-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+</style>
+
+<main>
+    <div class="special-header">
+        <div class="container">
+            <h1>✨ Especial del Día ✨</h1>
+            <p>
+                Disfruta nuestro Especial de la Casa, una combinación irresistible de pan recién horneado y galletas artesanales,
+                elaboradas con ingredientes de la mejor calidad y el sabor tradicional que nos distingue.
+            </p>
+            <p>
+                Crujientes por fuera, suaves por dentro y llenos de aroma, perfectos para acompañar tu café,
+                compartir en familia o darte un gusto en cualquier momento del día.
+            </p>
+            <div class="special-badge">
+                ⭐ Sabor casero, frescura diaria y calidad garantizada ⭐
+            </div>
+        </div>
+    </div>
+
+    <div class="special-container">
+        <div class="promo-banner">
+            <h3>🎉 ¡Oferta del Día! 🎉</h3>
+            <p>Compra 3 productos y obtén 15% de descuento</p>
+        </div>
+
+        <div class="popular-section">
+            <div class="section-title">
+                <h2>
+                    <span class="section-title-icon">🏆</span>
+                    Los Más Populares
+                    <span class="section-title-icon">🏆</span>
+                </h2>
+                <hr>
+            </div>
+
+            <div class="popular-grid">
+                <div class="popular-card">
+                    <figure class="popular-card-img-container">
+                        <span class="popular-badge">⭐ Popular</span>
+                        <img src="~/img/bagget.jfif" alt="Baguettes francesas crujientes y aromáticas" class="popular-card-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2280%22%3E🥖%3C/text%3E%3C/svg%3E'">
+                        <figcaption class="sr-only">Pan Baguette francés tradicional</figcaption>
+                    </figure>
+                    <div class="popular-card-content">
+                        <h3 class="popular-card-title">
+                            <span class="first-letter">B</span>aguettes
+                        </h3>
+                        <div class="popular-card-divider"></div>
+                        <p class="popular-card-description">
+                            Pan francés crujiente y aromático que lo puedes acompañar a tu gusto.
+                            Perfecto para cualquier momento del día.
+                        </p>
+                        <div class="popular-card-footer">
+                            <a href="#" class="btn-order-now">Ordene Ahora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popular-card">
+                    <figure class="popular-card-img-container">
+                        <span class="popular-badge">⭐ Popular</span>
+                        <img src="~/img/concha.jfif" alt="Conchas mexicanas de chocolate y vainilla" class="popular-card-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2280%22%3E🐚%3C/text%3E%3C/svg%3E'">
+                        <figcaption class="sr-only">Pan dulce concha tradicional mexicano</figcaption>
+                    </figure>
+                    <div class="popular-card-content">
+                        <h3 class="popular-card-title">
+                            <span class="first-letter">C</span>onchas
+                        </h3>
+                        <div class="popular-card-divider"></div>
+                        <p class="popular-card-description">
+                            Conchas de diferentes presentaciones: chocolate y vainilla.
+                            El pan dulce más tradicional de México.
+                        </p>
+                        <div class="popular-card-footer">
+                            <a href="#" class="btn-order-now">Ordene Ahora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popular-card">
+                    <figure class="popular-card-img-container">
+                        <span class="popular-badge">⭐ Popular</span>
+                        <img src="~/img/OREO.jfif" alt="Galletas de chocolate" class="popular-card-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2280%22%3E🍪%3C/text%3E%3C/svg%3E'">
+                        <figcaption class="sr-only">Galletas crujientes con  chocolate</figcaption>
+                    </figure>
+                    <div class="popular-card-content">
+                        <h3 class="popular-card-title">
+                            <span class="first-letter">G</span>Galletas Oreo
+                        </h3>
+                        <div class="popular-card-divider"></div>
+                        <p class="popular-card-description">
+                            Galletas crujientes con chispas de chocolate premium.
+                            Perfectas para acompañar con leche o café.
+                        </p>
+                        <div class="popular-card-footer">
+                            <a href="#" class="btn-order-now">Ordene Ahora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popular-card">
+                    <figure class="popular-card-img-container">
+                        <span class="popular-badge">⭐ Popular</span>
+                        <img src="~/img/integral.jfif" alt="Pan integral saludable rico en fibra" class="popular-card-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2280%22%3E🌾%3C/text%3E%3C/svg%3E'">
+                        <figcaption class="sr-only">Pan integral nutritivo para una dieta saludable</figcaption>
+                    </figure>
+                    <div class="popular-card-content">
+                        <h3 class="popular-card-title">
+                            <span class="first-letter">P</span>an Integral
+                        </h3>
+                        <div class="popular-card-divider"></div>
+                        <p class="popular-card-description">
+                            Pan integral para ese almuerzo ligero por las mañanas o por las noches.
+                            Rico en fibra y nutrientes.
+                        </p>
+                        <div class="popular-card-footer">
+                            <a href="#" class="btn-order-now">Ordene Ahora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popular-card">
+                    <figure class="popular-card-img-container">
+                        <span class="popular-badge">⭐ Popular</span>
+                        <img src="~/img/marias.jfif" alt="Galletas Marías tradicionales versátiles" class="popular-card-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2280%22%3E🍪%3C/text%3E%3C/svg%3E'">
+                        <figcaption class="sr-only">Galletas Marías clásicas para postres</figcaption>
+                    </figure>
+                    <div class="popular-card-content">
+                        <h3 class="popular-card-title">
+                            <span class="first-letter">G</span>alletas Marías
+                        </h3>
+                        <div class="popular-card-divider"></div>
+                        <p class="popular-card-description">
+                            Galletas Marías tradicionales para elaborar postres o disfrutar solas.
+                            Versátiles y deliciosas.
+                        </p>
+                        <div class="popular-card-footer">
+                            <a href="#" class="btn-order-now">Ordene Ahora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popular-card">
+                    <figure class="popular-card-img-container">
+                        <span class="popular-badge">⭐ Popular</span>
+                        <img src="~/img/pan relleno.jfif" alt="Pan relleno con mermelada de frutas naturales" class="popular-card-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2280%22%3E🥐%3C/text%3E%3C/svg%3E'">
+                        <figcaption class="sr-only">Pan dulce relleno con mermeladas de frutas</figcaption>
+                    </figure>
+                    <div class="popular-card-content">
+                        <h3 class="popular-card-title">
+                            <span class="first-letter">P</span>ieza Rellena
+                        </h3>
+                        <div class="popular-card-divider"></div>
+                        <p class="popular-card-description">
+                            Pieza de pan rellena con diferentes mermeladas de sabores.
+                            100% fruta natural y deliciosa.
+                        </p>
+                        <div class="popular-card-footer">
+                            <a href="#" class="btn-order-now">Ordene Ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-diario-section">
+            <div class="section-title">
+                <h2>
+                    <span class="section-title-icon">📋</span>
+                    Menú Diario
+                    <span class="section-title-icon">📋</span>
+                </h2>
+                <hr>
+            </div>
+
+            <div class="menu-diario-content">
+                <img src="~/Content/Images/menu-board.png" alt="Menu Board" class="menu-board-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect fill=%22%238B4513%22 width=%22300%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%2240%22%3EMenu%3C/text%3E%3C/svg%3E'">
+
+                <div class="menu-lists">
+                    <div class="menu-list-section">
+                        <h3>🥖 Pan Tradicional</h3>
+                        <ol>
+                            <li>Bolillo</li>
+                            <li>Telera</li>
+                            <li>Concha (vainilla o chocolate)</li>
+                            <li>Cuernito</li>
+                            <li>Oreja</li>
+                            <li>Pan de mantequilla</li>
+                        </ol>
+                    </div>
+
+                    <div class="menu-list-section">
+                        <h3>🍪 Galletas Más Pedidas</h3>
+                        <ol>
+                            <li>Galletas María</li>
+                            <li>Galletas Chokis</li>
+                            <li>Galletas Oreo</li>
+                            <li>Galletas de Almeja</li>
+                            <li>Galletas Polvorones</li>
+                            <li>Galletas de Avena</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var orderButtons = document.querySelectorAll('.btn-order-now');
+
+        for (var i = 0; i < orderButtons.length; i++) {
+            orderButtons[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                var card = this.closest('.popular-card');
+                var title = card.querySelector('.popular-card-title').textContent.trim();
+                alert('¡Producto agregado!\n\n' + title + '\n\n¡Gracias por tu preferencia!');
+            });
+        }
+
+        var menuItems = document.querySelectorAll('.menu-list-section li');
+        for (var j = 0; j < menuItems.length; j++) {
+            menuItems[j].addEventListener('click', function() {
+                this.style.backgroundColor = '#fff8e1';
+                var self = this;
+                setTimeout(function() {
+                    self.style.backgroundColor = 'transparent';
+                }, 500);
+            });
+        }
+    });
+</script>

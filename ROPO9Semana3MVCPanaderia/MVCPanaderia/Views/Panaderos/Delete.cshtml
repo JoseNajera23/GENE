@@ -1,0 +1,53 @@
+﻿@model MVCPanaderia.Models.DTOs.PanaderoDTO
+@{
+    ViewBag.Title = "Delete";
+}
+
+<style>
+    body {
+        margin: 0;
+        font-family: var(--bs-body-font-family);
+        font-size: var(--bs-body-font-size);
+        font-weight: var(--bs-body-font-weight);
+        line-height: var(--bs-body-line-height);
+        color: var(--bs-body-color);
+        text-align: var(--bs-body-text-align);
+        background-color: #cd7137;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+</style>
+<h2>Eliminar Panadero</h2>
+
+<h3>¿Está seguro de que desea eliminar este panadero?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.EmpleadoID)</dt>
+        <dd>@Html.DisplayFor(model => model.EmpleadoID)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Nombre)</dt>
+        <dd>@Html.DisplayFor(model => model.Nombre)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Ocupacion)</dt>
+        <dd>@Html.DisplayFor(model => model.Ocupacion)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.TipoPan)</dt>
+        <dd>@Html.DisplayFor(model => model.TipoPan)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Cantidad)</dt>
+        <dd>@Html.DisplayFor(model => model.Cantidad)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Stock)</dt>
+        <dd>@Html.DisplayFor(model => model.Stock)</dd>
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Panaderos", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            @Html.ActionLink("Volver al Listado", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

@@ -1,0 +1,817 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .panaderia-header {
+        background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+        .panaderia-header h1 {
+            font-family: 'Damion', cursive;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .panaderia-header .lead {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #f5f5dc;
+        }
+
+    /* ========== ESTILOS DE LA MÁQUINA DE CAFÉ ========== */
+    .coffee-section {
+        background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 100%);
+        padding: 80px 20px;
+        margin: 50px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .coffee-section::before {
+            content: '☕';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.05;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+        }
+
+        .coffee-section::after {
+            content: '☕';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.05;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+        }
+
+    .coffee-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 60px;
+        flex-wrap: wrap;
+    }
+
+    .coffee-text {
+        flex: 1;
+        min-width: 300px;
+        color: #f5f5dc;
+    }
+
+        .coffee-text h2 {
+            font-family: 'Damion', cursive;
+            font-size: 3em;
+            color: #D2691E;
+            margin-bottom: 20px;
+        }
+
+        .coffee-text p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+    .coffee-animation-container {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* Contenedor de la máquina de café */
+    .coffee-machine {
+        width: 300px;
+        height: 280px;
+        position: relative;
+    }
+
+    /* Sección superior de la máquina */
+    .coffee-header {
+        width: 100%;
+        height: 80px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #ddcfcc;
+        border-radius: 10px;
+    }
+
+    /* Botones de la máquina */
+    .coffee-header__buttons {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 25px;
+        background-color: #282323;
+        border-radius: 50%;
+    }
+
+        .coffee-header__buttons::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            bottom: -8px;
+            left: calc(50% - 4px);
+            background-color: #615e5e;
+        }
+
+    .coffee-header__button-one {
+        left: 15px;
+    }
+
+    .coffee-header__button-two {
+        left: 50px;
+    }
+
+    /* Pantalla de la máquina */
+    .coffee-header__display {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: calc(50% - 25px);
+        left: calc(50% - 25px);
+        border-radius: 50%;
+        background-color: #9acfc5;
+        border: 5px solid #43beae;
+        box-sizing: border-box;
+    }
+
+    /* Detalles de la cabecera */
+    .coffee-header__details {
+        width: 8px;
+        height: 20px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #9b9091;
+        box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+    }
+
+    /* Área media de la máquina */
+    .coffee-medium {
+        width: 90%;
+        height: 160px;
+        position: absolute;
+        top: 80px;
+        left: calc(50% - 45%);
+        background-color: #bcb0af;
+    }
+
+        .coffee-medium:before {
+            content: "";
+            width: 90%;
+            height: 100px;
+            background-color: #776f6e;
+            position: absolute;
+            bottom: 0;
+            left: calc(50% - 45%);
+            border-radius: 20px 20px 0 0;
+        }
+
+    /* Salida del café */
+    .coffe-medium__exit {
+        width: 60px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 30px);
+        background-color: #231f20;
+    }
+
+        .coffe-medium__exit::before {
+            content: "";
+            width: 50px;
+            height: 20px;
+            border-radius: 0 0 50% 50%;
+            position: absolute;
+            bottom: -20px;
+            left: calc(50% - 25px);
+            background-color: #231f20;
+        }
+
+        .coffe-medium__exit::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            bottom: -30px;
+            left: calc(50% - 5px);
+            background-color: #231f20;
+        }
+
+    /* Brazo de la máquina */
+    .coffee-medium__arm {
+        width: 70px;
+        height: 20px;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        background-color: #231f20;
+    }
+
+        .coffee-medium__arm::before {
+            content: "";
+            width: 15px;
+            height: 5px;
+            position: absolute;
+            top: 7px;
+            left: -15px;
+            background-color: #9e9495;
+        }
+
+    /* Taza de café */
+    .coffee-medium__cup {
+        width: 80px;
+        height: 47px;
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 40px);
+        background-color: #FFF;
+        border-radius: 0 0 70px 70px / 0 0 110px 110px;
+    }
+
+        .coffee-medium__cup::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 6px;
+            right: -13px;
+            border: 5px solid #FFF;
+            border-radius: 50%;
+        }
+
+    /* Animación del líquido */
+    @@keyframes liquid {
+        0% {
+            height: 0px;
+            opacity: 1;
+        }
+
+        5% {
+            height: 0px;
+            opacity: 1;
+        }
+
+        20% {
+            height: 62px;
+            opacity: 1;
+        }
+
+        95% {
+            height: 62px;
+            opacity: 1;
+        }
+
+        100% {
+            height: 62px;
+            opacity: 0;
+        }
+    }
+
+    .coffee-medium__liquid {
+        width: 6px;
+        height: 63px;
+        opacity: 0;
+        position: absolute;
+        top: 50px;
+        left: calc(50% - 3px);
+        background-color: #74372b;
+        animation: liquid 4s 4s linear infinite;
+    }
+
+    /* Humo */
+    .coffee-medium__smoke {
+        width: 8px;
+        height: 20px;
+        position: absolute;
+        border-radius: 5px;
+        background-color: #b3aeae;
+    }
+
+    /* Animaciones del humo */
+    @@keyframes smokeOne {
+        0% {
+            bottom: 20px;
+            opacity: 0;
+        }
+
+        40% {
+            bottom: 50px;
+            opacity: .5;
+        }
+
+        80% {
+            bottom: 80px;
+            opacity: .3;
+        }
+
+        100% {
+            bottom: 80px;
+            opacity: 0;
+        }
+    }
+
+    @@keyframes smokeTwo {
+        0% {
+            bottom: 40px;
+            opacity: 0;
+        }
+
+        40% {
+            bottom: 70px;
+            opacity: .5;
+        }
+
+        80% {
+            bottom: 80px;
+            opacity: .3;
+        }
+
+        100% {
+            bottom: 80px;
+            opacity: 0;
+        }
+    }
+
+    .coffee-medium__smoke-one {
+        opacity: 0;
+        bottom: 50px;
+        left: 102px;
+        animation: smokeOne 3s 4s linear infinite;
+    }
+
+    .coffee-medium__smoke-two {
+        opacity: 0;
+        bottom: 70px;
+        left: 118px;
+        animation: smokeTwo 3s 5s linear infinite;
+    }
+
+    .coffee-medium__smoke-three {
+        opacity: 0;
+        bottom: 65px;
+        right: 118px;
+        animation: smokeTwo 3s 6s linear infinite;
+    }
+
+    .coffee-medium__smoke-for {
+        opacity: 0;
+        bottom: 50px;
+        right: 102px;
+        animation: smokeOne 3s 5s linear infinite;
+    }
+
+    /* Pie de la máquina */
+    .coffee-footer {
+        width: 95%;
+        height: 15px;
+        position: absolute;
+        bottom: 25px;
+        left: calc(50% - 47.5%);
+        background-color: #41bdad;
+        border-radius: 10px;
+    }
+
+        .coffee-footer::after {
+            content: "";
+            width: 106%;
+            height: 26px;
+            position: absolute;
+            bottom: -25px;
+            left: -8px;
+            background-color: #000;
+        }
+
+    /* ========== FIN ESTILOS MÁQUINA DE CAFÉ ========== */
+
+    .producto-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 30px;
+        background: white;
+    }
+
+        .producto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+    .producto-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .producto-body {
+        padding: 20px;
+    }
+
+    .producto-title {
+        font-family: 'Damion', cursive;
+        font-size: 2em;
+        color: #8B4513;
+        margin-bottom: 10px;
+    }
+
+    .producto-description {
+        color: #666;
+        font-size: 0.95em;
+        margin-bottom: 15px;
+    }
+
+    .btn-ordenar {
+        background-color: #D2691E;
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+        .btn-ordenar:hover {
+            background-color: #8B4513;
+            color: white;
+            transform: scale(1.05);
+        }
+
+    .seccion-titulo {
+        text-align: center;
+        margin: 50px 0 30px;
+        position: relative;
+    }
+
+        .seccion-titulo h2 {
+            font-family: 'Damion', cursive;
+            font-size: 2.5em;
+            color: #D2691E;
+            display: inline-block;
+            padding: 0 20px;
+            background: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .seccion-titulo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #D2691E;
+            opacity: 0.3;
+        }
+
+    .menu-diario {
+        background: linear-gradient(135deg, #f5f5dc 0%, #faf0e6 100%);
+        padding: 40px;
+        border-radius: 15px;
+        margin: 30px 0;
+    }
+
+        .menu-diario h3 {
+            color: #8B4513;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .menu-diario ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .menu-diario li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+            color: #666;
+        }
+
+            .menu-diario li:before {
+                content: "🥖 ";
+                margin-right: 10px;
+            }
+
+    .sobre-nosotros {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin: 30px 0;
+    }
+
+        .sobre-nosotros h2 {
+            color: #D2691E;
+            margin-bottom: 20px;
+        }
+
+    .emoji-icon {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    @@media (max-width: 768px) {
+        .coffee-content {
+            flex-direction: column;
+        }
+
+        .coffee-text h2 {
+            font-size: 2em;
+        }
+
+        .panaderia-header h1 {
+            font-size: 2.5em;
+        }
+    }
+</style>
+
+<!-- Importar fuentes -->
+<link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+<main>
+    <!-- Header Principal -->
+    <section class="panaderia-header">
+        <div class="container">
+            <figure>
+                <img src="~/img/pan.png" alt="Logo de Panadería The Brothers" class="header-icon">
+                <figcaption class="sr-only">Logo oficial de la panadería</figcaption>
+            </figure>
+            <h1>Panadería The Brothers</h1>
+            <p class="lead">
+                La panadería es el arte y oficio de elaborar pan y otros productos horneados a partir de ingredientes básicos como harina, agua, sal y levadura.
+                Más que un lugar de producción, la panadería es un espacio que despierta aromas cálidos y recuerdos, ofreciendo alimentos que forman parte esencial de la vida diaria.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección de Café con Animación -->
+    <section class="coffee-section" aria-label="Café fresco recién preparado">
+        <div class="coffee-content">
+            <div class="coffee-text">
+                <h2>☕ Café Recién Hecho</h2>
+                <p>
+                    Acompaña nuestro delicioso pan con un café recién preparado.
+                    Cada taza es elaborada con granos seleccionados de la más alta calidad.
+                </p>
+                <p>
+                    El aroma del café fresco combinado con nuestro pan artesanal
+                    crea la experiencia perfecta para comenzar tu día o disfrutar
+                    un momento especial.
+                </p>
+                <p style="font-style: italic; color: #D2691E;">
+                    "El mejor café para acompañar el mejor pan"
+                </p>
+            </div>
+            <div class="coffee-animation-container">
+                <!-- Máquina de Café Animada -->
+                <div class="coffee-machine">
+                    <div class="coffee-header">
+                        <div class="coffee-header__buttons coffee-header__button-one"></div>
+                        <div class="coffee-header__buttons coffee-header__button-two"></div>
+                        <div class="coffee-header__display"></div>
+                        <div class="coffee-header__details"></div>
+                    </div>
+                    <div class="coffee-medium">
+                        <div class="coffe-medium__exit"></div>
+                        <div class="coffee-medium__arm"></div>
+                        <div class="coffee-medium__liquid"></div>
+                        <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+                        <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+                        <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+                        <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+                        <div class="coffee-medium__cup"></div>
+                    </div>
+                    <div class="coffee-footer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <div class="seccion-titulo">
+        <h2>🥖 Productos Destacados 🍪</h2>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Bolillo -->
+            <div class="col-md-4">
+                <article class="producto-card">
+                    <figure>
+                        <img src="~/img/bolillo.jfif" alt="Bolillo tradicional mexicano recién horneado" class="producto-img">
+                        <figcaption class="sr-only">Bolillo crujiente y suave</figcaption>
+                    </figure>
+                    <div class="producto-body">
+                        <h3 class="producto-title">Bolillo</h3>
+                        <p class="producto-description">Bolillo lo ideal para tus comidas, cenas y almuerzos. Crujiente por fuera, suave por dentro.</p>
+                        <button class="btn btn-ordenar">Ordenar</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Almeja -->
+            <div class="col-md-4">
+                <article class="producto-card">
+                    <figure>
+                        <img src="~/img/almejaa.jfif" alt="Galletas almeja rellenas de mermelada de fresa" class="producto-img">
+                        <figcaption class="sr-only">Galletas con relleno de fresa</figcaption>
+                    </figure>
+                    <div class="producto-body">
+                        <h3 class="producto-title">Almeja</h3>
+                        <p class="producto-description">Galletas con mermelada sabor fresa. Ideal para chopear con café o chocolate.</p>
+                        <button class="btn btn-ordenar">Ordenar</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pan de Muerto -->
+            <div class="col-md-4">
+                <article class="producto-card">
+                    <figure>
+                        <img src="~/img/Pan de Muerto.jfif" alt="Pan de muerto tradicional mexicano" class="producto-img">
+                        <figcaption class="sr-only">Pan de muerto para Día de Muertos</figcaption>
+                    </figure>
+                    <div class="producto-body">
+                        <h3 class="producto-title">Pan de Muerto</h3>
+                        <p class="producto-description">Pan de Muerto tradicional de México. Disponible en temporada especial del 2 de Noviembre.</p>
+                        <button class="btn btn-ordenar">Ordenar</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Galleta Choquis -->
+            <div class="col-md-4">
+                <article class="producto-card">
+                    <figure>
+                        <img src="~/img/galleta choquis.jfif" alt="Galletas chokis con chispas de chocolate" class="producto-img">
+                        <figcaption class="sr-only">Galletas con chispas de chocolate</figcaption>
+                    </figure>
+                    <div class="producto-body">
+                        <h3 class="producto-title">Galleta Choquis</h3>
+                        <p class="producto-description">Galletas con chispas de chocolate. Perfectas para cualquier momento del día.</p>
+                        <button class="btn btn-ordenar">Ordenar</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Baguette -->
+            <div class="col-md-4">
+                <article class="producto-card">
+                    <figure>
+                        <img src="~/img/bagget.jfif" alt="Baguette francesa crujiente" class="producto-img">
+                        <figcaption class="sr-only">Pan baguette tradicional francés</figcaption>
+                    </figure>
+                    <div class="producto-body">
+                        <h3 class="producto-title">Baguette</h3>
+                        <p class="producto-description">Pan francés ideal para esas comidas y reuniones con tu familia y amigos.</p>
+                        <button class="btn btn-ordenar">Ordenar</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Concha -->
+            <div class="col-md-4">
+                <article class="producto-card">
+                    <figure>
+                        <img src="~/img/concha.jfif" alt="Conchas mexicanas de vainilla y chocolate" class="producto-img">
+                        <figcaption class="sr-only">Pan dulce concha tradicional</figcaption>
+                    </figure>
+                    <div class="producto-body">
+                        <h3 class="producto-title">Concha</h3>
+                        <p class="producto-description">Concha de vainilla o chocolate. El pan dulce más tradicional de México.</p>
+                        <button class="btn btn-ordenar">Ordenar</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú Diario -->
+    <div class="seccion-titulo">
+        <h2>📋 Menú Diario</h2>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <section class="menu-diario">
+                    <h3>🌅 Pan del Día</h3>
+                    <ul>
+                        <li>Bolillo recién horneado</li>
+                        <li>Concha de vainilla o chocolate</li>
+                        <li>Pan de muerto (temporada especial)</li>
+                        <li>Cuernito mantequilla</li>
+                        <li>Oreja hojaldrada</li>
+                    </ul>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section class="menu-diario">
+                    <h3>🍪 Galletas del Día</h3>
+                    <ul>
+                        <li>Galletas de avena con pasas</li>
+                        <li>Galletas de mantequilla</li>
+                        <li>Polvorones tradicionales</li>
+                        <li>Galletas de coco</li>
+                        <li>Galletas de Almeja rellena de mermelada</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sobre Nosotros -->
+    <div class="seccion-titulo">
+        <h2>👥 Sobre Nosotros</h2>
+    </div>
+
+    <div class="container">
+        <section class="sobre-nosotros">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Nuestra Historia</h2>
+                    <p>
+                        🥖 <strong>El sabor del pan recién hecho:</strong><br>
+                        Nuestro pan se elabora cada día con ingredientes frescos y el cuidado de manos expertas.
+                        Su aroma, textura y sabor hacen que cada bocado sea una experiencia única que acompaña tus mejores momentos.
+                    </p>
+                    <p>
+                        🍪 <strong>Galletas que conquistan al primer mordisco:</strong><br>
+                        Crujientes, dulces y llenas de sabor, nuestras galletas están hechas para alegrar tu día.
+                        Perfectas para compartir, acompañar un café o darte un pequeño gusto cuando más lo mereces.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Nuestros Valores</h2>
+                    <p>
+                        Somos una panadería 100% mexicana que ofrece productos de calidad hacia el cliente.
+                        En Panadería The Brothers, el cliente siempre tiene la razón.
+                    </p>
+                    <p>
+                        Trabajamos con dedicación y pasión para ofrecerte los mejores panes y galletas de la ciudad.
+                        Cada producto es elaborado artesanalmente por manos mexicanas con la más alta higiene y calidad.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Info -->
+    <footer class="container" style="margin: 50px auto; text-align: center;">
+        <p class="text-muted">Copyright &copy; 2026 La Panadería The Brothers - Todos los derechos reservados</p>
+    </footer>
+</main>
+
+<script>
+    // Animación suave al hacer scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Efecto hover en las cards
+    document.querySelectorAll('.producto-card').forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-10px)';
+        });
+        card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+</script>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PanaderiaModel1StoreContainer" CdmEntityContainer="PanaderiaModel">
+    <EntitySetMapping Name="Galleteroes">
+      <EntityTypeMapping TypeName="PanaderiaModel1.Galletero">
+        <MappingFragment StoreEntitySet="Galletero">
+          <ScalarProperty Name="EmpleadoID" ColumnName="EmpleadoID" />
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+          <ScalarProperty Name="TipoGalleta" ColumnName="TipoGalleta" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Panaderoes">
+      <EntityTypeMapping TypeName="PanaderiaModel1.Panadero">
+        <MappingFragment StoreEntitySet="Panadero">
+          <ScalarProperty Name="EmpleadoID" ColumnName="EmpleadoID" />
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+          <ScalarProperty Name="TipoPan" ColumnName="TipoPan" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="PanaderiaModel1.Producto">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="TipoProducto" ColumnName="TipoProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="PanaderiaModel1.Venta">
+        <MappingFragment StoreEntitySet="Ventas">
+          <ScalarProperty Name="VentaID" ColumnName="VentaID" />
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Delete_Galletero" FunctionName="PanaderiaModel1.Store.Delete_Galletero" />
+    <FunctionImportMapping FunctionImportName="Delete_Panadero" FunctionName="PanaderiaModel1.Store.Delete_Panadero" />
+    <FunctionImportMapping FunctionImportName="Delete_Producto" FunctionName="PanaderiaModel1.Store.Delete_Producto" />
+    <FunctionImportMapping FunctionImportName="Delete_Venta" FunctionName="PanaderiaModel1.Store.Delete_Venta" />
+    <FunctionImportMapping FunctionImportName="Delete_Venta_Diaria" FunctionName="PanaderiaModel1.Store.Delete_Venta_Diaria" />
+    <FunctionImportMapping FunctionImportName="Insert_Galletero" FunctionName="PanaderiaModel1.Store.Insert_Galletero" />
+    <FunctionImportMapping FunctionImportName="Insert_Panadero" FunctionName="PanaderiaModel1.Store.Insert_Panadero" />
+    <FunctionImportMapping FunctionImportName="Insert_Producto" FunctionName="PanaderiaModel1.Store.Insert_Producto" />
+    <FunctionImportMapping FunctionImportName="Insert_Venta" FunctionName="PanaderiaModel1.Store.Insert_Venta" />
+    <FunctionImportMapping FunctionImportName="Insert_Venta_Diaria" FunctionName="PanaderiaModel1.Store.Insert_Venta_Diaria" />
+    <FunctionImportMapping FunctionImportName="Obtener_Galleteros" FunctionName="PanaderiaModel1.Store.Obtener_Galleteros">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PanaderiaModel1.Obtener_Galleteros_Result">
+          <ScalarProperty Name="EmpleadoID" ColumnName="EmpleadoID" />
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+          <ScalarProperty Name="TipoGalleta" ColumnName="TipoGalleta" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Obtener_Panaderos" FunctionName="PanaderiaModel1.Store.Obtener_Panaderos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PanaderiaModel1.Obtener_Panaderos_Result">
+          <ScalarProperty Name="EmpleadoID" ColumnName="EmpleadoID" />
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+          <ScalarProperty Name="TipoPan" ColumnName="TipoPan" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Obtener_Productos" FunctionName="PanaderiaModel1.Store.Obtener_Productos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PanaderiaModel1.Obtener_Productos_Result">
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="TipoProducto" ColumnName="TipoProducto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Obtener_Ventas" FunctionName="PanaderiaModel1.Store.Obtener_Ventas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PanaderiaModel1.Obtener_Ventas_Result">
+          <ScalarProperty Name="VentaID" ColumnName="VentaID" />
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Obtener_Ventas_Diarias" FunctionName="PanaderiaModel1.Store.Obtener_Ventas_Diarias" />
+    <FunctionImportMapping FunctionImportName="ObtenerVentaPorDatos" FunctionName="PanaderiaModel1.Store.ObtenerVentaPorDatos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PanaderiaModel1.ObtenerVentaPorDatos_Result">
+          <ScalarProperty Name="VentaID" ColumnName="VentaID" />
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PanaderiaModel1.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PanaderiaModel1.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PanaderiaModel1.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PanaderiaModel1.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PanaderiaModel1.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PanaderiaModel1.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PanaderiaModel1.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PanaderiaModel1.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PanaderiaModel1.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="Update_Galletero" FunctionName="PanaderiaModel1.Store.Update_Galletero" />
+    <FunctionImportMapping FunctionImportName="Update_Panadero" FunctionName="PanaderiaModel1.Store.Update_Panadero" />
+    <FunctionImportMapping FunctionImportName="Update_Producto" FunctionName="PanaderiaModel1.Store.Update_Producto" />
+    <FunctionImportMapping FunctionImportName="Update_Venta" FunctionName="PanaderiaModel1.Store.Update_Venta" />
+    <FunctionImportMapping FunctionImportName="Update_Venta_Diaria" FunctionName="PanaderiaModel1.Store.Update_Venta_Diaria" />
+  </EntityContainerMapping>
+</Mapping>

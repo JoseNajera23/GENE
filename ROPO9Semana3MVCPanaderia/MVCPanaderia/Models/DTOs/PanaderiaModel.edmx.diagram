@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="804d8ae3c9b644608f948bf8c5c022e5" Name="Diagram1">
+        <EntityTypeShape EntityType="PanaderiaModel1.Galletero" Width="1.5" PointX="3" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PanaderiaModel1.Panadero" Width="1.5" PointX="5.375" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="PanaderiaModel1.Producto" Width="1.5" PointX="0.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PanaderiaModel1.Venta" Width="1.5" PointX="7.625" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="PanaderiaModel1.FK__Galletero__Produ__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="PanaderiaModel1.FK_Galletero_Productos" ManuallyRouted="false" />
+        <AssociationConnector Association="PanaderiaModel1.FK__Panadero__Produc__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="PanaderiaModel1.FK_Panadero_Productos" ManuallyRouted="false" />
+        <AssociationConnector Association="PanaderiaModel1.FK__Ventas__Producto__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="PanaderiaModel1.FK__Ventas__Producto__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="PanaderiaModel1.FK_Ventas_Productos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
